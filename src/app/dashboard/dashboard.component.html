@@ -1,0 +1,92 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row" *ngIf="authService.loggedIn">
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-warning card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">description</i>
+                      </div>
+                      <p class="card-category">Nombre de devoir</p>
+                      <h3 class="card-title">{{totalDocs}}
+                      </h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+<!--                          <i class="material-icons text-info">info</i>-->
+<!--                          <a routerLink="/list-assignment">Voir plus..</a>-->
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-success card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">description</i>
+                      </div>
+                      <p class="card-category">Devoir rendus</p>
+                      <h3 class="card-title">{{totalRendu}}</h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+<!--                          <i class="material-icons text-info">info</i>-->
+<!--                          <a routerLink="/rendu-assignment">Voir plus..</a>-->
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-danger card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">info_outline</i>
+                      </div>
+                      <p class="card-category">Devoirs non rendu</p>
+                      <h3 class="card-title">{{totalNonRendu}}</h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+<!--                          <i class="material-icons text-info">info</i>-->
+<!--                          <a routerLink="/rendu-assignment">Voir plus..</a>-->
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+      <div class="row d-flex justify-content-center" *ngIf="!authService.loggedIn">
+          <div class="col-md-4">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">Authentification</h4>
+                      <p class="card-category">Se connecter</p>
+                  </div>
+                  <div class="card-body">
+                      <form ngForm #loginForm (submit)="login();">
+                          <div class="row">
+                              <div class="col-md-12">
+                                  <mat-form-field class="example-full-width">
+                                      <input required matInput placeholder="Nom utilisateur" type="text" [(ngModel)]="username"  name="username">
+                                  </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-12">
+                                  <mat-form-field class="example-full-width">
+                                      <input required matInput placeholder="Mot de passe" type="password" [(ngModel)]="password" name="password">
+                                  </mat-form-field>
+                              </div>
+                          </div>
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-right">Se connecter</button>
+                          <div class="clearfix"></div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+  </div>
+</div>

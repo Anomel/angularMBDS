@@ -1,0 +1,55 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Assignments: {{totalDocs}}</h4>
+                        <p class="card-category"> Touts les devoirs rendus</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table mat-table [dataSource]="assignments" class="table">
+                                <!--- Note that these columns can be defined in any order.
+                                      The actual rendered columns are set as a property on the row definition" -->
+                                <!-- id Column -->
+                                <ng-container matColumnDef="id">
+                                    <th mat-header-cell *matHeaderCellDef> Id </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                                </ng-container>
+
+                                <!-- Nom Column -->
+                                <ng-container matColumnDef="nom">
+                                    <th mat-header-cell *matHeaderCellDef> Nom </th>
+                                    <td mat-cell *matCellDef="let element"> <a routerLink="/details-assignment/{{element.id}}">{{element.nom}}</a> </td>
+                                </ng-container>
+
+
+                                <!-- date de rendu Column -->
+                                <ng-container matColumnDef="dateDeRendu">
+                                    <th mat-header-cell *matHeaderCellDef> Date de rendu </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.dateDeRendu | date}} </td>
+                                </ng-container>
+
+                                <!-- Rendu Column -->
+                                <ng-container matColumnDef="rendu">
+                                    <th mat-header-cell *matHeaderCellDef> Rendu </th>
+                                    <td mat-cell  *matCellDef="let element"> {{element.rendu ? "Rendu" : "Non rendu" }} </td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            </table>
+                            <mat-paginator [length]=totalPages
+                                           [pageSize]=limit
+                                           [pageSizeOptions]="[5, 10, 25, 100]"
+                                           (page)="OnPageChange($event)"
+                                           aria-label="Select page">
+                            </mat-paginator>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

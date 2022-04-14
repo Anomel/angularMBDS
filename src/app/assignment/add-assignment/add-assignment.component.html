@@ -1,0 +1,41 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" *ngIf="isAddded">
+                    <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="material-icons">close</i>
+                    </button>
+                    <span>
+                              <b> Success - </b> Devoir ajouté avec succès !</span>
+                </div>
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Ajouter Assignment</h4>
+                        <p class="card-category">Ajout</p>
+                    </div>
+                    <div class="card-body">
+                        <form ngForm #assignmentForm (submit)="onSubmit(); assignmentForm.reset()">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input required matInput placeholder="Nom" type="text" [(ngModel)]="nomAssignment" name="nom">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input required matInput placeholder="Date rendu" type="date" [(ngModel)]="dateDeRenduAssignment" name="date">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <button *ngIf="authService.currentUser[0].isAdmin" mat-raised-button type="submit" class="btn btn-danger pull-right">Ajouter devoir</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
