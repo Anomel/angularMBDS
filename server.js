@@ -4,5 +4,5 @@ const app = express();
 app.use(express.static(__dirname + '/dist/angular-app-mbdsci'));
 app.get('/*', function(req,res) {
     res.sendFile(path.join(__dirname+
-        '/dist/<nom-app>/index.html') );});
+        '/dist/angular-app-mbdsci/index.html') );});
 app.listen(process.env.PORT || 8080);
