@@ -1,7 +1,19 @@
 <div class="main-content">
     <div class="container-fluid">
+        <div class="row d-flex justify-content-start">
+            <div class="col-md-12">
+                <button *ngIf="authService.currentUser[0].isAdmin || !peupler" (click)="peuplerBD()" class="btn btn-success">Peupler BD</button>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-12">
+                <div class="alert alert-success" *ngIf="peupler">
+                    <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="material-icons">close</i>
+                    </button>
+                    <span>
+                              <b> Success - </b> La base de données est entrain d'être peuplée !</span>
+                </div>
                 <div class="alert alert-success" *ngIf="isAddded">
                     <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <i class="material-icons">close</i>

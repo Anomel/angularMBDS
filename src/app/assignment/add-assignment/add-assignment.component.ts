@@ -14,6 +14,7 @@ export class AddAssignmentComponent implements OnInit {
   nomAssignment = "";
   msg = "";
   isAddded = false;
+  peupler = false;
   dateDeRenduAssignment!: Date;
 
   constructor(
@@ -45,6 +46,14 @@ export class AddAssignmentComponent implements OnInit {
           // on doit naviguer vers l'URL qui affiche la liste ("" ou "/home")
           // on doit naviguer par programme
           // on retourne à la page d'accueil
+        })
+  }
+
+  peuplerBD() {
+    this.assignmentsService.peuplerBDAvecForkJoin()
+        .subscribe(() => {
+          // on peut alors afficher la liste
+          this.peupler = true;
         })
   }
 }
