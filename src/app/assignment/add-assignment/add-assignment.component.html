@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row d-flex justify-content-start">
             <div class="col-md-12">
-                <button *ngIf="authService.currentUser[0].isAdmin || !peupler" (click)="peuplerBD()" class="btn btn-success">Peupler BD</button>
+                <button *ngIf="authService.currentUser[0].isAdmin && !peupler" (click)="peuplerBD()" class="btn btn-success">Peupler BD</button>
             </div>
         </div>
         <div class="row">
