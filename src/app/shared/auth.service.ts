@@ -20,7 +20,6 @@ export class AuthService {
 
   logIn(username, password) {
     // devrait prendre un login et un password en paramètres...
-
     for (let i = 0; i < this.users.length; i++ ) {
       // tslint:disable-next-line:triple-equals
       if (this.users[i].username == username && this.users[i].password == password) {
